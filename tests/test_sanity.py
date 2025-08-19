@@ -1,4 +1,5 @@
-import asdf_light_kurve
+import asdf_lightkurve
+
 
 def test_sanity():
-    assert asdf_light_kurve
+    assert asdf_lightkurve
