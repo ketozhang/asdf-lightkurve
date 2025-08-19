@@ -6,9 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 license-files = ['LICENSE']
 keywords = []
-authors = [
-    { name = "Keto D. Zhang", email = "keto.zhang@gmail.com" }
-]
+authors = [{ name = "Keto D. Zhang", email = "keto.zhang@gmail.com" }]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Programming Language :: Python",
@@ -18,7 +16,11 @@ classifiers = [
     "Programming Language :: Python :: Implementation :: PyPy",
 ]
 dependencies = [
-    "asdf>=3", "pydantic>=2", "numpy>=1.25", "asdf-pydantic>=2a", "lightkurve"
+    "asdf>=3",
+    "pydantic>=2",
+    "numpy>=1.25",
+    "asdf-pydantic>=2a",
+    "lightkurve",
 ]
 
 [project.urls]
@@ -37,6 +39,9 @@ build-backend = "hatchling.build"
 [tool.hatch.version]
 source = "vcs"
 
+[tool.hatch.build.hooks.vcs]
+version-file = "src/asdf_lightkurve/_version.py"
+
 [tool.coverage.run]
 branch = true
 parallel = true
@@ -51,10 +56,5 @@ fail_under = 95
 convention = "numpy"
 
 [dependency-groups]
-test = [
-    "pytest>=8.4.1",
-    "pytest-cov>=6.2.1",
-]
-dev = [
-    {include-group = "test"},
-]
+test = ["pytest>=8.4.1", "pytest-cov>=6.2.1"]
+dev = [{ include-group = "test" }]
