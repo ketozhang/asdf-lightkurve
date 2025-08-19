@@ -1,0 +1,51 @@
+[project]
+name = "asdf-lightkurve"
+dynamic = ["version"]
+description = "Write LightKurve model to ASDF"
+readme = "README.md"
+requires-python = ">=3.12"
+license-files = ['LICENSE']
+keywords = []
+authors = [
+    { name = "Keto D. Zhang", email = "keto.zhang@gmail.com" }
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+    "asdf>=3", "pydantic>=2", "numpy>=1.25", "asdf-pydantic>=2a", "lightkurve"
+]
+
+[project.urls]
+# TODO: Update documentationo URL
+# Documentation = "https://asdf-lightkurve.readthedocs.io"
+Issues = "https://github.com/ketozhang/asdf-lightkurve/issues"
+Source = "https://github.com/ketozhang/asdf-lightkurve"
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+################################################################################
+# TOOL CONFIGS
+################################################################################
+[tool.hatch.version]
+source = "vcs"
+
+[tool.coverage.run]
+branch = true
+parallel = true
+omit = ["asdf_lightkurve/__version__.py"]
+
+[tool.coverage.report]
+exclude_lines = ["no cov", "if __name__ == .__main__.:", "if TYPE_CHECKING:"]
+precision = 1
+fail_under = 95
+
+[tool.ruff.pydocstyle]
+convention = "numpy"
