@@ -20,7 +20,12 @@ jobs:
       uses: astral-sh/setup-uv@v6
 
     - name: Run test and coverage
-      run: make test
+      run: |
+        uv run pytest \
+          --cov-config=pyproject.toml \
+          --cov-report= \
+          --cov=asdf_lightkurve \
+          tests/
 
     - name: Report test coverage
       run: uv run coverage report
