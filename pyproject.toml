@@ -46,7 +46,7 @@ version-file = "src/asdf_lightkurve/_version.py"
 [tool.coverage.run]
 branch = true
 parallel = true
-omit = ["asdf_lightkurve/__version__.py"]
+omit = ["src/asdf_lightkurve/_version.py", "tests/"]
 
 [tool.coverage.report]
 exclude_lines = ["no cov", "if __name__ == .__main__.:", "if TYPE_CHECKING:"]
